@@ -1,0 +1,28 @@
+
+	
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+RewriteRule ^menu(.*)$ menu.php?id=$1 [NC,QSA,L]
+RewriteRule ^register(.*)$ register.php?id=$1 [NC,QSA,L]
+RewriteRule ^login(.*)$ login.php?id=$1 [NC,QSA,L]
+RewriteRule ^logout(.*)$ logout.php?id=$1 [NC,QSA,L]
+RewriteRule ^profile(.*)$ profile.php?id=$1 [NC,QSA,L]
+RewriteRule ^categories(.*)$ categories.php?id=$1 [NC,QSA,L]
+RewriteRule ^add-category(.*)$ add-categories.php?id=$1 [NC,QSA,L]
+RewriteRule ^list-menu(.*)$ menu-list.php?id=$1 [NC,QSA,L]
+RewriteRule ^add-menu(.*)$ add-menu.php?id=$1 [NC,QSA,L]
+
+
+
+
+ErrorDocument 404 /404.php
+
+</IfModule>
